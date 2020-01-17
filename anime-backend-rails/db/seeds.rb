@@ -1,3 +1,5 @@
+User.destroy_all
+Anime.destroy_all
 
 media = [
             {
@@ -1065,4 +1067,6 @@ media.each do |anime|
         duration: anime[:duration]
     })
 end
+
+admin = User.create(firstName: "Admin", lastName: "Admin", username: "a", password: "a")
 

@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LoginPage from './LoginPage'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  
+  state = ({
+    selectedPage: 'login',
+    loggedInUser: null
+  })
+
+  selectPage = page => {
+      this.setState({
+          selectedPage: page
+      })
+  }
+
+  setLoggedInUser = (user) => {
+    console.log("running setloggedinuser")
+    this.setState({
+        loggedInUser: user,
+        selectedPage: 'myTickets'
+    })
+  } 
+
+
+  render() {
+    return (
+      <div className="App">
+        <LoginPage setLoggedInUser={this.setLoggedInUser}/>
+      </div>
+    )
+  }
 }
 
 export default App;
