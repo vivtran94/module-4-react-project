@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_211917) do
     t.string "firstName"
     t.string "lastName"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
   end
 
   create_table "watchlists", force: :cascade do |t|

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Menu from "./Menu";
 import Header from "./Header";
 import AnimeList from "./AnimeList";
 import Search from "./Search";
@@ -29,8 +28,7 @@ export default class AnimeIndex extends Component {
     console.log(this.state.displayedAnime);
     return (
       <div>
-        <Header />
-        <Menu />
+        <Header/>
         <Search searchAnime={this.searchAnime} />
         <br></br>
         <AnimeList animes={this.state.displayedAnime} />

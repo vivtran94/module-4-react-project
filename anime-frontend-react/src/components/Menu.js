@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
-
-export default class  extends Component {
+export default class Menu extends Component {
     render() {
         return (
-          <div class="ui blue three item inverted menu">
-            <a class="item active">Home</a>
-            <a class="item">Messages</a>
-            <a class="item">Friends</a>
+          <div className="ui blue three item inverted menu">
+            <Link className="item active" to="/">Home</Link>
+            <Link className="item" to="/about">About</Link>
+            <Link className="item" to="/login">Login</Link>
           </div>
         );
     }
