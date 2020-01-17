@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <LoginPage setLoggedInUser={this.setLoggedInUser} />
+        {/* <LoginPage setLoggedInUser={this.setLoggedInUser} /> */}
         <AnimeIndex />
       </div>
     );

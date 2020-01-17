@@ -1060,7 +1060,7 @@ media.each do |anime|
         title: anime[:title][:romaji],
         description: anime[:description],
         episodes: anime[:episodes],
-        coverImage: anime[:coverImage][:medium],
+        coverImage: anime[:coverImage][:extraLarge],
         averageScore: anime[:averageScore],
         popularity: anime[:popularity],
         seasonYear: anime[:seasonYear],
