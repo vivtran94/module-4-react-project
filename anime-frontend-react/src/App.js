@@ -1,14 +1,36 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import AnimeIndex from "./components/AnimeIndex"
+import LoginPage from "./LoginPage";
+import AnimeIndex from "./components/AnimeIndex";
 
-function App() {
-  return (
-    <div className="App">
-      <AnimeIndex />
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    selectedPage: "login",
+    loggedInUser: null
+  };
+
+  selectPage = page => {
+    this.setState({
+      selectedPage: page
+    });
+  };
+
+  setLoggedInUser = user => {
+    console.log("running setloggedinuser");
+    this.setState({
+      loggedInUser: user,
+      selectedPage: "myTickets"
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <LoginPage setLoggedInUser={this.setLoggedInUser} />
+        <AnimeIndex />
+      </div>
+    );
+  }
 }
 
 export default App;
