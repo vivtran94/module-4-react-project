@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Menu from "./Menu";
 import Header from "./Header";
 
 
@@ -27,7 +26,6 @@ export default class AnimeIndex extends Component {
     return (
       <div>
         <Header/>
-        <Menu />
         <h1>AnimeIndex</h1>
       </div>
     );

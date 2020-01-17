@@ -1,13 +1,24 @@
 import React from 'react';
+import AnimeIndex from './components/AnimeIndex';
+import { Link } from 'react-router-dom';
 
 export default class LoginPage extends React.Component {
 
     state = ({
         usernameInputValue: "",
         passwordInputValue: "",
-        errorMessage: ""
+        errorMessage: "",
+        loggedInUser: null,
     })
 
+        
+    setLoggedInUser = user => {
+        console.log("running setloggedinuser");
+        this.setState({
+          loggedInUser: user,
+        });
+       
+      };
     handleSubmit = (event) => {
         event.preventDefault()
         fetch('http://localhost:3000/login', {
@@ -25,12 +36,18 @@ export default class LoginPage extends React.Component {
                 if(login.failed){
                     this.setState({ errorMessage: login.message })
                 } else {
-                    this.props.setLoggedInUser(login.user)
+                    this.setLoggedInUser(login.user)
                 }
             })
     }
 
     render () {
+        console.log(this.state.loggedInUser)
+        if (this.state.loggedInUser !== null) {
+            return (
+            <AnimeIndex />
+            )
+        }
         return (
             <div className="App">
                 <h1>LOG IN</h1>
@@ -43,8 +60,8 @@ export default class LoginPage extends React.Component {
                     onChange={event => this.setState({ passwordInputValue: event.target.value })}
                     value={this.state.passwordInputValue}/>
                     <br></br>
-                    <p>{this.state.errorMessage}</p>
-                    <button onClick={this.handleSubmit}>Submit</button>
+                    <p style={{color:"red"}}>{this.state.errorMessage} </p>
+                    <Link to="/" onClick={this.handleSubmit}>Submit</Link>
                 </form>
               
             </div>
