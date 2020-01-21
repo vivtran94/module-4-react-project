@@ -24,12 +24,28 @@ export default class AnimeIndex extends Component {
     console.log(searchinput);
   };
 
+  sortPopular = () => {
+    console.log("running sortPopular")
+    let newArray = this.state.animeList.sort((a,b) => {return b.popularity-a.popularity})
+    this.setState({
+      displayedAnime: newArray
+    })
+  }
+
+  sortRating = () => {
+    console.log("running sortRating")
+    let newArray = this.state.animeList.sort((a,b) => {return b.averageScore-a.averageScore})
+    this.setState({
+      displayedAnime: newArray
+    })
+  }
+
   render() {
     console.log(this.state.displayedAnime);
     return (
       <div>
         <Header/>
-        <Search searchAnime={this.searchAnime} />
+        <Search searchAnime={this.searchAnime} sortPopular={this.sortPopular} sortRating={this.sortRating}/>
         <br></br>
         <AnimeList animes={this.state.displayedAnime} />
       </div>

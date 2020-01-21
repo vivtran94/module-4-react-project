@@ -7,7 +7,7 @@ export default class AnimeList extends Component {
         return (
             <div className="ui cards">
                 {this.props.animes.map(anime =>  (
-                    <AnimeCard anime={anime}/>
+                    <AnimeCard anime={anime} key={anime.popularity}/>
                     
                     
                 ))}
