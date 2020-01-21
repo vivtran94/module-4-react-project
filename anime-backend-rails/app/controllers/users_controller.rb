@@ -10,5 +10,19 @@ class UsersController < ApplicationController
         end
     end
 
+    def create
+        
+        newuser = User.create(
+            firstName: params[:firstname],
+            lastName: params[:lastname],
+            username: params[:username],
+            password: params[:password]
+        )
+        session[:user_id] = newuser.id
+        render json: { user: newuser}
+        
+    end
+
+
 
 end
