@@ -44,7 +44,7 @@ export default class AnimeIndex extends Component {
     console.log(this.state.displayedAnime);
     return (
       <div>
-        <Header/>
+        <Header currentUser={this.props.currentUser}/>
         <Search searchAnime={this.searchAnime} sortPopular={this.sortPopular} sortRating={this.sortRating}/>
         <br></br>
         <AnimeList animes={this.state.displayedAnime} />
