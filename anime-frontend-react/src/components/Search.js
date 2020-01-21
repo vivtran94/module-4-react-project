@@ -1,15 +1,40 @@
 import React, { Component } from 'react';
 export default class Search extends Component {
+
+  state = {
+    popularClicked: null,
+    ratingClicked: null
+  }
+
+  popularClick = () => {
+    this.setState({
+      popularClicked: true,
+      ratingClicked: false
+    })
+  }
+
+  ratingClick = () => {
+    this.setState({
+      popularClicked: false,
+      ratingClicked: true
+      
+    })
+  }
+
     render() {
         return (
             
-  <div class="ui search">
-  <div class="ui icon input">
-    <input onChange={(e) => this.props.searchAnime(e.target.value)} class="prompt" type="text" placeholder="Search for Anime..."></input>
-    <i class="search icon"></i>
-  </div>
-  <div class="results"></div>
-</div>
+        <div className="ui search">
+          <div className="ui icon input">
+            <input onChange={(e) => this.props.searchAnime(e.target.value)} className="prompt" type="text" placeholder="Search for Anime..." style={{width:"400px"}}></input>
+            <i className="search icon"></i>
+          </div>
+          <div className="results"></div>
+          <div>
+            <input type="radio" value="1" onClick={() => {this.props.sortPopular(); this.popularClick()}} checked={this.state.popularClicked ? "checked" : ""} />  Most Popular<br></br>
+            <input type="radio" value="1" onClick={() => {this.props.sortRating(); this.ratingClick()}} checked={this.state.ratingClicked ? "checked" : ""} />  Highest Rating
+          </div>
+        </div>
              
             
         );

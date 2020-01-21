@@ -61,7 +61,7 @@ export default class LoginPage extends React.Component {
                     value={this.state.passwordInputValue}/>
                     <br></br>
                     <p style={{color:"red"}}>{this.state.errorMessage} </p>
-                    <Link to="/" onClick={this.handleSubmit}>Submit</Link>
+                    <Link to="/" onClick={this.handleSubmit} className="ui blue button">Submit</Link>
                 </form>
               
             </div>
