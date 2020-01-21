@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_211917) do
   create_table "watchlists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "anime_id"
+    t.boolean "has_been_watched" :default => false
   end
 
 end
