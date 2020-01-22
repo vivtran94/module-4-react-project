@@ -47,30 +47,38 @@ export default class SignUpPage extends React.Component {
         }
         return (
             <div className="App">
-                <h1>Sign Up Page</h1>
+                <h1>Sign Up</h1>
                 <form>
-                    <input type="text" placeholder="Enter your first name"
-                    onChange={event => this.setState({ firstnameInputValue: event.target.value })}
-                    value={this.state.firstnameInputValue}/>
-                    <br></br>
-                    <br></br>
-                    <input type="text" placeholder="Enter your last name"
-                    onChange={event => this.setState({ lastnameInputValue: event.target.value })}
-                    value={this.state.lastnameInputValue}/>
-                    <br></br>
-                    <br></br>
-                    <input type="text" placeholder="Create a username"
-                    onChange={event => this.setState({ usernameInputValue: event.target.value })}
-                    value={this.state.usernameInputValue}/>
-                    <br></br>
-                    <br></br>
-                    <input type="text" placeholder="Create a password"
-                    onChange={event => this.setState({ passwordInputValue: event.target.value })}
-                    value={this.state.passwordInputValue}/>
-                    <br></br>
-                    <br></br>
-                    <p style={{color:"red"}}>{this.state.errorMessage} </p>
-                    <button className="ui blue button" onClick={this.handleSubmit}>Create an Account</button>
+                    <div className="ui input">
+                        <input type="text" placeholder="Enter your first name"
+                        onChange={event => this.setState({ firstnameInputValue: event.target.value })}
+                        value={this.state.firstnameInputValue}/>
+                    </div>
+                        <br></br>
+                        <br></br>
+                    <div className="ui input">
+                        <input type="text" placeholder="Enter your last name"
+                        onChange={event => this.setState({ lastnameInputValue: event.target.value })}
+                        value={this.state.lastnameInputValue}/>
+                    </div>
+                        <br></br>
+                        <br></br>
+                    <div className="ui input">
+                        <input type="text" placeholder="Enter a username"
+                        onChange={event => this.setState({ usernameInputValue: event.target.value })}
+                        value={this.state.usernameInputValue}/>
+                    </div>
+                        <br></br>
+                        <br></br>
+                    <div className="ui input">
+                        <input type="text" placeholder="Enter a password"
+                        onChange={event => this.setState({ passwordInputValue: event.target.value })}
+                        value={this.state.passwordInputValue}/>
+                    </div>
+                        <br></br>
+                        <br></br>
+                        <p style={{color:"red"}}>{this.state.errorMessage} </p>
+                        <button className="ui blue button" onClick={this.handleSubmit}>Create an Account</button>
                 </form>
                 
             </div>

@@ -48,19 +48,24 @@ export default class LoginPage extends React.Component {
             return <AnimeIndex currentUser={this.state.loggedInUser}/>
         }
         return (
-            <div className="App">
-                <h1>LOG IN</h1>
-                <form>
-                    <input type="text" placeholder="Username" 
-                    onChange={event => this.setState({ usernameInputValue: event.target.value })}
-                    value={this.state.usernameInputValue}/>
+            <div class="App" >
+                <h1>Log In</h1>
+                <form >
+                    <div className="ui input">
+                        <input type="text" placeholder="Username"
+                        onChange={event => this.setState({ usernameInputValue: event.target.value })}
+                        value={this.state.usernameInputValue}/>
+                    </div>
                     <br></br>
                     <br></br>
-                    <input type="text" placeholder="Password" 
-                    onChange={event => this.setState({ passwordInputValue: event.target.value })}
-                    value={this.state.passwordInputValue}/>
+                    <div className="ui input">
+                        <input type="text" placeholder="Password" 
+                        onChange={event => this.setState({ passwordInputValue: event.target.value })}
+                        value={this.state.passwordInputValue}/>
+                    </div>
                     <br></br>
-                    <p style={{color:"red"}}>{this.state.errorMessage} </p>
+                    <p style={{color:"red"}}>{this.state.errorMessage}</p>
+                    <br></br>
                     <button className="ui blue button" onClick={this.handleSubmit}>Log In</button>
                     <Link className="ui pink button" to={'/signup'}>Sign Up</Link>
 
