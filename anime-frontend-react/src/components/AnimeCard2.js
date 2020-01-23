@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function AnimeCard(props) {
+export function AnimeCard2(props) {
   const [buttonClick, setButtonClick] = useState(false);
 
   return (
@@ -22,9 +22,9 @@ export function AnimeCard(props) {
       <div>
         <button
           className="ui blue button"
-          onClick={() => props.addToWatchlist(props.anime)}
+          onClick={() => props.changeToWatched(props.anime)}
         >
-          Add to Watch List
+          Add to your watched list
         </button>
 
         <button

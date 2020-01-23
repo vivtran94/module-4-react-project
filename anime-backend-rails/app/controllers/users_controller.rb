@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def profile
         # render json: current_user
-        render( json: current_user, include: [ :animes ] )
+        render( json: current_user, include: [ :animes,  :watchlists ] )
     end
 
     def login
