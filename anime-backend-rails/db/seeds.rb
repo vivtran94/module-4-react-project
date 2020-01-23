@@ -1,5 +1,6 @@
 User.destroy_all
 Anime.destroy_all
+Watchlist.destroy_all
 
 media = [
             {

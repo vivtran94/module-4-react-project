@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources(:watchlists)
 
   post('/login', { to: 'users#login'})
+  get('/profile', { to: 'users#profile'})
 
 
 end

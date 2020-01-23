@@ -1,6 +1,6 @@
 import React from 'react';
-import AnimeIndex from './components/AnimeIndex';
 import {Link} from 'react-router-dom';
+import {history} from "./history"
 
 export default class LoginPage extends React.Component {
 
@@ -8,17 +8,7 @@ export default class LoginPage extends React.Component {
         usernameInputValue: "",
         passwordInputValue: "",
         errorMessage: "",
-        loggedInUser: null,
     })
-
-        
-    setLoggedInUser = user => {
-        console.log("running setloggedinuser");
-        this.setState({
-          loggedInUser: user,
-        });
-       
-      };
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -34,21 +24,18 @@ export default class LoginPage extends React.Component {
         })
             .then(res => res.json())
             .then(login => {
-                if (login.failed) {
-                    this.setState({ errorMessage: login.message })
+                
+                if (login.error) {
+                    this.setState({ errorMessage: login.error})
                 } else {
-                    this.setLoggedInUser(login.user)
+                    history.push('/')
                 }
             })
     }
 
     render () {
-        console.log(this.state.loggedInUser)
-        if (this.state.loggedInUser !== null) {
-            return <AnimeIndex currentUser={this.state.loggedInUser}/>
-        }
         return (
-            <div class="App" >
+            <div className="App" >
                 <h1>Log In</h1>
                 <form >
                     <div className="ui input">

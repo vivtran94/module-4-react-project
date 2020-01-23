@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import AnimeList from "./AnimeList";
+import React from "react";
+import {Header} from "./Header";
+import {AnimeList} from "./AnimeList";
 import Search from "./Search";
 
-export default class AnimeIndex extends Component {
+export default class AnimeIndex extends React.Component {
   state = {
     animeList: [],
     displayedAnime: []
@@ -44,7 +44,7 @@ export default class AnimeIndex extends Component {
     console.log(this.state.displayedAnime);
     return (
       <div>
-        <Header currentUser={this.props.currentUser}/>
+        <Header />
         <Search searchAnime={this.searchAnime} sortPopular={this.sortPopular} sortRating={this.sortRating}/>
         <br></br>
         <AnimeList animes={this.state.displayedAnime} />

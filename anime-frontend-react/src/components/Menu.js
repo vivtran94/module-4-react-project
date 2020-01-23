@@ -7,7 +7,7 @@ export default class Menu extends Component {
         return (
           <div className="ui blue three item inverted menu">
             <Link className="item active" to="/">Home</Link>
-            <Link className="item" to="/watchlist">My List</Link>
+            <Link className="item" to="/myprofile">My Profile</Link>
             <Link className="item" to="/login">Login</Link>
           </div>
         );

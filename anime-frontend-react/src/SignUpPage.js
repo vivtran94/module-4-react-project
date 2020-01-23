@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimeIndex from './AnimeIndex';
+import {history} from "./history";
 
 export default class SignUpPage extends React.Component {
 
@@ -8,19 +8,8 @@ export default class SignUpPage extends React.Component {
         lastnameInputValue: "",
         usernameInputValue: "",
         passwordInputValue: "",
-        errorMessage: "",
-        loggedInUser: null,
     })
-
-        
-    setLoggedInUser = user => {
-        console.log("running setloggedinuser");
-        this.setState({
-          loggedInUser: user,
-        });
        
-      };
-
     handleSubmit = (event) => {
         event.preventDefault()
         fetch('http://localhost:3000/users', {
@@ -36,15 +25,10 @@ export default class SignUpPage extends React.Component {
             })
         })
             .then(res => res.json())
-            .then(res => { this.setState({ loggedInUser: res.user}) })
+            .then(history.push('/'))
     }
 
-
-
     render () {
-        if (this.state.loggedInUser !== null) {
-            return <AnimeIndex currentUser={this.state.loggedInUser} />
-        }
         return (
             <div className="App">
                 <h1>Sign Up</h1>
