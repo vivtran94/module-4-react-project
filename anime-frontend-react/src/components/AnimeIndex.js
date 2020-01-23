@@ -43,7 +43,7 @@ export default class AnimeIndex extends React.Component {
   render() {
     console.log(this.state.displayedAnime);
     return (
-      <div>
+      <div className="App">
         <Header />
         <Search searchAnime={this.searchAnime} sortPopular={this.sortPopular} sortRating={this.sortRating}/>
         <br></br>

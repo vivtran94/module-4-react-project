@@ -1,5 +1,6 @@
 import React from 'react';
 import {history} from "./history";
+import background from './images/background.jpg'
 
 export default class SignUpPage extends React.Component {
 
@@ -8,6 +9,7 @@ export default class SignUpPage extends React.Component {
         lastnameInputValue: "",
         usernameInputValue: "",
         passwordInputValue: "",
+        errorMessage: ""
     })
        
     handleSubmit = (event) => {
@@ -25,13 +27,20 @@ export default class SignUpPage extends React.Component {
             })
         })
             .then(res => res.json())
-            .then(history.push('/'))
+            .then(signup => {
+
+                if (signup.failed) {
+                    this.setState({ errorMessage: signup.message})
+                } else {
+                    history.push('/')
+                }
+            })
     }
 
     render () {
         return (
-            <div className="App">
-                <h1>Sign Up</h1>
+            <div className="App" style={{ backgroundImage:`url(${background})`, height: "100vh"}}>
+                <h1 style={{color:'white'}}>Sign Up</h1>
                 <form>
                     <div className="ui input">
                         <input type="text" placeholder="Enter your first name"
@@ -52,7 +61,15 @@ export default class SignUpPage extends React.Component {
                         onChange={event => this.setState({ usernameInputValue: event.target.value })}
                         value={this.state.usernameInputValue}/>
                     </div>
-                        <br></br>
+                    <br></br>
+                        {this.state.errorMessage.length > 1 ? 
+                        <div>
+                            <p className="ui pointing red basic label">{this.state.errorMessage}</p>
+                            <br></br>
+                        </div>
+                        :
+                        null
+                        }
                         <br></br>
                     <div className="ui input">
                         <input type="text" placeholder="Enter a password"
@@ -61,7 +78,6 @@ export default class SignUpPage extends React.Component {
                     </div>
                         <br></br>
                         <br></br>
-                        <p style={{color:"red"}}>{this.state.errorMessage} </p>
                         <button className="ui blue button" onClick={this.handleSubmit}>Create an Account</button>
                 </form>
                 
