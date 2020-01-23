@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {history} from "./history"
+import {history} from "./history";
+import background from './images/background.jpg'
 
 export default class LoginPage extends React.Component {
 
@@ -25,8 +26,8 @@ export default class LoginPage extends React.Component {
             .then(res => res.json())
             .then(login => {
                 
-                if (login.error) {
-                    this.setState({ errorMessage: login.error})
+                if (login.failed) {
+                    this.setState({ errorMessage: login.message})
                 } else {
                     history.push('/')
                 }
@@ -35,8 +36,8 @@ export default class LoginPage extends React.Component {
 
     render () {
         return (
-            <div className="App" >
-                <h1>Log In</h1>
+            <div className="App" style={{ backgroundImage:`url(${background})`, height: "100vh"}}>
+                <h1 style={{color:'white'}}>Log In</h1>
                 <form >
                     <div className="ui input">
                         <input type="text" placeholder="Username"
@@ -46,12 +47,17 @@ export default class LoginPage extends React.Component {
                     <br></br>
                     <br></br>
                     <div className="ui input">
-                        <input type="text" placeholder="Password" 
+                        <input type="password" placeholder="Password" 
                         onChange={event => this.setState({ passwordInputValue: event.target.value })}
                         value={this.state.passwordInputValue}/>
                     </div>
                     <br></br>
-                    <p style={{color:"red"}}>{this.state.errorMessage}</p>
+                    {this.state.errorMessage.length > 1 ? 
+                    <p className="ui pointing red basic label">{this.state.errorMessage}</p>
+                    :
+                    null
+                    }
+                    <br></br>
                     <br></br>
                     <button className="ui blue button" onClick={this.handleSubmit}>Log In</button>
                     <Link className="ui pink button" to={'/signup'}>Sign Up</Link>
