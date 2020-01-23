@@ -24,7 +24,7 @@ export function AnimeList (props) {
       }
     
         return (
-            <div className="ui cards">
+            <div className="ui cards" style={{ display: "flex", "justify-content": "center"}}>
                 {props.animes.map(anime =>  (
                     <AnimeCard anime={anime} key={anime.popularity} addToWatchlist={addToWatchlist}/>
                     

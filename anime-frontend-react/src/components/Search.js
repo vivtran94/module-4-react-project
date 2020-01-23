@@ -24,7 +24,7 @@ export default class Search extends Component {
     render() {
         return (
             
-        <div className="ui search">
+        <div className="ui search" style={{display: "flex", "justify-content": "space-evenly"}}>
           <div className="ui icon input">
             <input 
               onChange={(e) => this.props.searchAnime(e.target.value)} 
@@ -35,11 +35,12 @@ export default class Search extends Component {
             </input>
             <i className="search icon"></i>
           </div>
-          <div className="results"></div>
           <div>
             <input type="radio"
               onClick={() => {this.props.sortPopular(); this.popularClick()}} 
-              checked={this.state.popularClicked ? "checked" : ""} />  Most Popular<br></br>
+              checked={this.state.popularClicked ? "checked" : ""} />  Most Popular
+          </div>
+          <div>
             <input type="radio"
               onClick={() => {this.props.sortRating(); this.ratingClick()}} 
               checked={this.state.ratingClicked ? "checked" : ""} />  Highest Rating
